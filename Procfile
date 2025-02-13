@@ -1,1 +1,1 @@
-web: gunicorn stitchin.wsgi
+web: gunicorn click2meet.wsgi
