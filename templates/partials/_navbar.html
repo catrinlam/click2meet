@@ -16,10 +16,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Bookings</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-disabled="true">User</a>
-        </li>
+       
 
+        {% if not user.is_authenticated %}
         <li class="nav-item">
           <a href="{% url 'account_signup' %}" class="nav-link" aria-disabled="true">Sign Up</a>
         </li>
@@ -27,6 +26,17 @@
         <li class="nav-item">
           <a href="{% url 'account_login' %}" class="nav-link" aria-disabled="true">Sign In</a>
         </li>
+        {% else %}
+        <li class="nav-item">
+          <a href="#" class="nav-link" aria-disabled="true">
+            {{ user.username }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'account_logout' %}" class="nav-link" aria-disabled="true">Sign Out</a>
+        </li>
+        {% endif %}
+      
       </ul>
     </div>
   </div>
