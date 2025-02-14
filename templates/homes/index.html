@@ -16,25 +16,19 @@
                             <div class="user">
                                 <div class="title">
                                     <img src="{{ event.image.url}}" alt="img">
-                                    <h5>{{ event.organizer }}</h5>
-                                    <p>{{ event.name }}</p>
                                 </div>
-                                <ul>
-                                    <li>Coffe &amp; Snacks</li>
-                                    <li>Video Streming</li>
-                                </ul>
                             </div>
                         </div>
                         <div class="col-md-10 col-sm-12">
                             <div class="event-list-content fix">
                                 <ul data-animation="fadeInUp animated" data-delay=".2s" style="animation-delay: 0.2s;" class="">
-                                    <li>Waterfront Hotel, London</li>
-                                    <li>9.30 - 10.30 AM</li>
+                                    <li>{{event.event.address}}, {{event.event.city}}</li>
+                                    <li>{{event.event.time}}</li>
                                 </ul>
-                                <h2>UX Design Trend Party 2019</h2>
-                                <p>In order to save time you have to break down the content strategy for the event or conference you are planning step by step. Creating this process from scratch will take the longest amount of time to build, but once you have content production foundation.</p>
+                                <h2>{{event.event.organizer}}</h2>
+                                <p>{{event.event.description}}</p>
                                 <a href="#" class="btn mt-20 mr-10"><i class="far fa-ticket-alt"></i> Buy Ticket</a>
-                                <a href="#" class="btn mt-20">Read More</a>
+                                <a href="{% url 'event_detail' event.id %}" class="btn mt-20">Read More</a>
                                 <div class="crical"><i class="fal fa-video"></i> </div>
                             </div>
                         </div>
