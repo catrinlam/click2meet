@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import EventImage
 from django.shortcuts import get_object_or_404
 from .models import Event
-
+from bookings.forms import BookingForm
 
 def EventListView(request):
     events = EventImage.objects.all()
@@ -20,7 +20,8 @@ def EventDetailView(request, event_id):
     context = {
         'event': event,
         'images': event.images.all(),
-        'ticket_types': event.ticket_types.all()
+        'ticket_types': event.ticket_types.all(),
+        'form': BookingForm()
     }
     return render(request, 'events/event_detail.html', context)
  

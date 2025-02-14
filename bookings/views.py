@@ -4,6 +4,8 @@ from .forms import BookingForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
 from django.contrib import messages
+from events.models import Event
+from events.views import EventDetailView
 
 
 @login_required
@@ -13,17 +15,27 @@ def user_booking(request):
 
 
 @login_required
-def create_booking(request):
+def create_booking(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+    user_booking = Booking.objects.filter(ticket_type__event=event, user=request.user).first()
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
             booking = form.save(commit=False)
             booking.user = request.user
+            booking.ticket_type = form.cleaned_data['ticket_type']
             booking.save()
-            return redirect('user_booking')
+            messages.add_message(request, messages.SUCCESS, 'Booking created!')
+            return redirect('EventDetailView', event_id=event.id)
     else:
         form = BookingForm()
-    return render(request, 'bookings/create_booking.html', {'form': form})
+        if user_booking:
+            messages.add_message(request, messages.ERROR, 'You can only book one ticket per event!')
+    return render(request, 'bookings/create_booking.html', {
+        'event': event,
+        'form': form,
+        'user_booking': user_booking,
+    })
 
 
 @login_required
