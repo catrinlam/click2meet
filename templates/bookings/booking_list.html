@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Booking List</h1>
+    <ul class="list-group">
+        {% for booking in bookings %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>{{ booking.ticket_type }}</strong> - {{ booking.quantity }} - {{ booking.booked_at }} - {{ booking.payment_status }}
+                </div>
+                <form method="post" action="{% url 'cancel_booking' booking.id %}" class="ml-3" onsubmit="return confirmCancel();">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Cancel Booking</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
