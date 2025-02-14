@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'events.apps.EventsConfig',
     'bookings.apps.BookingsConfig',
     'homes.apps.HomesConfig',
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
 SITE_ID = 1
@@ -149,6 +151,12 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'click2meet/staticfiles'), ]
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
 # Media files
 MEDIA_URL = '/media/'
