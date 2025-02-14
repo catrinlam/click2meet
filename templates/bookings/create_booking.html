@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block head_title %}Create Booking{% endblock %}
+{% block content %}
+    <h1>Create Booking</h1>
+    <div class="booking-form">
+        <form method="post" class="bg-light p-3 border-top">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Create Booking</button>
+        </form>
+    </div>
+{% endblock %}

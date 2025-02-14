@@ -292,6 +292,21 @@ ul {
     border-color: transparent #ff007a transparent transparent;
 }
 
+.booking-form {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1030;
+}
+
+.custom-bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.custom-border-top {
+    border-top: 1px solid #dee2e6 !important;
+}
+
 /* Footer styling */
 .footer {
     background-color: #333; /* Use the same background color as your list items */

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Booking{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Booking List</h1>
+    <ul class="list-group">
+        {% for booking in bookings %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>{{ booking.ticket_type }}</strong> - {{ booking.quantity }} - {{ booking.booked_at }} - {{ booking.payment_status }}
+                </div>
+                <button type="button" class="btn btn-danger btn-sm btn-cancel cancel-booking" data-booking-id="{{ booking.id }}" data-bs-toggle="modal" data-bs-target="#cancelModal">Cancel Booking</button>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Cancel confirmation modal -->
+<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cancelModalLabel">Cancel Booking?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to cancel this booking? This action cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a id="cancelConfirm" href="#" class="btn btn-danger">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
