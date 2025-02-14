@@ -1,6 +1,7 @@
-{% extends 'base.html' %} {% load static %}
-{% block head_title %}Home{% endblock %}
-{% block content %}
+{% extends 'base.html' %} 
+
+{% block content %} {% load static %}
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -8,13 +9,15 @@
                 <div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="nav-home-tab">
                     <h1 class="text-center">Welcome to the Home Page</h1>
                     <!-- row loop -->
-                    <div class="row mb-30 text-center">
+                     {% for event in events %}
+
+                        <div class="row mb-30 text-center">
                         <div class="col-md-2 col-sm-12">
                             <div class="user">
                                 <div class="title">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="img">
-                                    <h5>Rosalina William</h5>
-                                    <p>UX Deisgn</p>
+                                    <img src="{{ event.image.url}}" alt="img">
+                                    <h5>{{ event.organizer }}</h5>
+                                    <p>{{ event.name }}</p>
                                 </div>
                                 <ul>
                                     <li>Coffe &amp; Snacks</li>
@@ -36,97 +39,11 @@
                             </div>
                         </div>
                     </div>
-                    <!-- row loop -->
-                    <!-- row loop -->
-                    <div class="row mb-30 text-center decoration-none">
-                        <div class="col-md-2 col-sm-12">
-                            <div class="user">
-                                <div class="title">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="img">
-                                    <h5>Kelian M. Bappe</h5>
-                                    <p>youtubing</p>
-                                </div>
-                                <ul>
-                                    <li>Coffe &amp; Snacks</li>
-                                    <li>Video Streming</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-10 col-sm-12">
-                            <div class="event-list-content fix">
-                                <ul data-animation="fadeInUp animated" data-delay=".2s" style="animation-delay: 0.2s;" class="">
-                                    <li><i class="fas fa-map-marker-alt"></i> Waterfront Hotel, London</li>
-                                    <li><i class="far fa-clock"></i> 9.30 - 10.30 AM</li>
-                                </ul>
-                                <h2>Rokolo DJ Dancing 2019</h2>
-                                <p>In order to save time you have to break down the content strategy for the event or conference you are planning step by step. Creating this process from scratch will take the longest amount of time to build, but once you have content production foundation.</p>
-                                <a href="#" class="btn mt-20 mr-10"><i class="far fa-ticket-alt"></i> Buy Ticket</a>
-                                <a href="#" class="btn mt-20">Read More</a>
-                                <div class="crical"><i class="fal fa-magic"></i> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row loop -->
-                    <!-- row loop -->
-                    <div class="row mb-30 text-center decoration-none">
-                        <div class="col-md-2 col-sm-12">
-                            <div class="user">
-                                <div class="title">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="img">
-                                    <h5>Hiliniam Nelson</h5>
-                                    <p>UX Deisgn</p>
-                                </div>
-                                <ul>
-                                    <li>Coffe &amp; Snacks</li>
-                                    <li>Video Streming</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-10 col-sm-12">
-                            <div class="event-list-content fix">
-                                <ul data-animation="fadeInUp animated" data-delay=".2s" style="animation-delay: 0.2s;" class="">
-                                    <li><i class="fas fa-map-marker-alt"></i> Waterfront Hotel, London</li>
-                                    <li><i class="far fa-clock"></i> 9.30 - 10.30 AM</li>
-                                </ul>
-                                <h2>Google Youtube Stratigic Party</h2>
-                                <p>In order to save time you have to break down the content strategy for the event or conference you are planning step by step. Creating this process from scratch will take the longest amount of time to build, but once you have content production foundation.</p>
-                                <a href="#" class="btn mt-20 mr-10"><i class="far fa-ticket-alt"></i> Buy Ticket</a>
-                                <a href="#" class="btn mt-20">Read More</a>
-                                <div class="crical"><i class="far fa-cogs"></i> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row loop -->
-                    <!-- row loop -->
-                    <div class="row mb-30 text-center decoration-none">
-                        <div class="col-md-2 col-sm-12">
-                            <div class="user">
-                                <div class="title">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="img">
-                                    <h5>Kimjing J. Jalim</h5>
-                                    <p>UX Deisgn</p>
-                                </div>
-                                <ul>
-                                    <li>Coffe &amp; Snacks</li>
-                                    <li>Video Streming</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-10 col-sm-12">
-                            <div class="event-list-content fix">
-                                <ul data-animation="fadeInUp animated" data-delay=".2s" style="animation-delay: 0.2s;" class="">
-                                    <li><i class="fas fa-map-marker-alt"></i> Waterfront Hotel, London</li>
-                                    <li><i class="far fa-clock"></i> 9.30 - 10.30 AM</li>
-                                </ul>
-                                <h2>Intro Jiknim Jikis 2019</h2>
-                                <p>In order to save time you have to break down the content strategy for the event or conference you are planning step by step. Creating this process from scratch will take the longest amount of time to build, but once you have content production foundation.</p>
-                                <a href="#" class="btn mt-20 mr-10"><i class="far fa-ticket-alt"></i> Buy Ticket</a>
-                                <a href="#" class="btn mt-20">Read More</a>
-                                <div class="crical"><i class="fal fa-ban"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row loop -->
+
+                     {% endfor %}
+                    
+                    
+                    
 
                 </div>
             </div>
