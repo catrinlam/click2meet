@@ -29,4 +29,3 @@ def cancel_booking(request, booking_id):
         booking.delete()
         return redirect('user_booking')
     return HttpResponseForbidden()
-
