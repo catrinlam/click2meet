@@ -1,1 +1,53 @@
-<h1>Event Details</h1>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>{{ event.name }}</h1>
+            <div class="event-meta mb-4">
+                <p class="text-muted">
+                    <i class="fas fa-calendar-alt"></i> {{ event.date }} 
+                    <i class="fas fa-clock ml-3"></i> {{ event.time }}
+                </p>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i> 
+                    {{ event.address }}, {{ event.city }}, {{ event.postcode }}
+                </p>
+            </div>
+            
+            <div class="event-images mb-4">
+                {% for image in images %}
+                    <img src="{{ image.image.url }}" class="img-fluid mb-3" alt="Event image">
+                {% endfor %}
+            </div>
+
+            <div class="event-description">
+                <h3>Event Details</h3>
+                <p>{{ event.description }}</p>
+            </div>
+
+            <div class="ticket-types mt-5">
+                <h3>Available Tickets</h3>
+                {% for ticket in ticket_types %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ ticket.name }}</h5>
+                            <p class="card-text">
+                                Price: £{{ ticket.price }}<br>
+                                Remaining: {{ ticket.remaining_quantity }} of {{ ticket.quantity }}
+                            </p>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-ticket-alt"></i> Purchase
+                            </button>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p class="text-muted">No tickets available yet</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
