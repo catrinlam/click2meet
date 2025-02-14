@@ -1,5 +1,3 @@
-
-
 .event .title {
     margin: 0px 0 0;
 }
@@ -264,4 +262,19 @@ ul {
     -moz-transition: all 0.4s ease;
     -ms-transition: all 0.4s ease;
     border-color: transparent #ff007a transparent transparent;
+}
+
+.booking-form {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1030;
+}
+
+.custom-bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.custom-border-top {
+    border-top: 1px solid #dee2e6 !important;
 }
