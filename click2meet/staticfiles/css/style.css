@@ -1,3 +1,31 @@
+/* Nav-bar styling */
+.navbar {
+    margin-bottom: 20px;
+    background-color: #333; /* Use the same background color as your list items */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff007a; /* Use the same pink color */
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    color: #fff; /* White color for the links */
+}
+
+.navbar-nav .nav-link.active {
+    background-color: #ff007a; /* Use the same pink color */
+    border-radius: 5px;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #444; /* Slightly lighter background on hover */
+    border-radius: 5px;
+}
+
 .event .title {
     margin: 0px 0 0;
 }
@@ -277,4 +305,28 @@ ul {
 
 .custom-border-top {
     border-top: 1px solid #dee2e6 !important;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #333; /* Use the same background color as your list items */
+    color: #fff; /* White color for the text */
+    padding: 20px 0;
+}
+
+.footer .btn-floating {
+    font-size: 1.2rem;
+    color: #fff; /* White color for the icons */
+}
+
+.footer .btn-floating:hover {
+    color: #ff007a; /* Use the same pink color on hover */
+}
+
+.footer .text-body {
+    color: #ff007a; /* Use the same pink color for the links */
+}
+
+.footer .text-body:hover {
+    color: #fff; /* White color on hover */
 }
