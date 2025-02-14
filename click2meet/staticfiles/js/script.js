@@ -1,15 +1,25 @@
 document.addEventListener("DOMContentLoaded", function() {
-    console.log('DOM loaded');
-    var cancelButtons = document.querySelectorAll('.cancel-booking');
-    var cancelModal = document.getElementById('cancelModal');
-    var cancelConfirm = document.getElementById('cancelConfirm');
+    const cancelButtons = document.getElementsByClassName("cancel-booking");
+    const cancelModal = document.getElementById("cancelModal");
+    const cancelConfirm = document.getElementById("cancelConfirm");
 
-    cancelButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            var bookingId = this.getAttribute('data-booking-id');
-            cancelConfirm.setAttribute('href', 'cancel/' + bookingId);
-            var modal = new bootstrap.Modal(cancelModal);
-            modal.show();
+    for (let button of cancelButtons) {
+        button.addEventListener("click", (e) => {
+            let bookingId = e.target.getAttribute("data-booking-id");
+            cancelConfirm.href = `cancel/${bookingId}`;
+            cancelModal.classList.add("show");
+            cancelModal.style.display = "block";
+            cancelModal.setAttribute("aria-modal", "true");
+            cancelModal.removeAttribute("aria-hidden");
+        });
+    }
+
+    document.querySelectorAll('[data-bs-dismiss="modal"]').forEach(function(button) {
+        button.addEventListener("click", function() {
+            cancelModal.classList.remove("show");
+            cancelModal.style.display = "none";
+            cancelModal.removeAttribute("aria-modal");
+            cancelModal.setAttribute("aria-hidden", "true");
         });
     });
 });
