@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'events.apps.EventsConfig',
-    'accounts.apps.AccountsConfig',
     'bookings.apps.BookingsConfig',
     'homes.apps.HomesConfig',
 ]
