@@ -7,6 +7,7 @@ from django.contrib import messages
 from events.models import Event, TicketType
 from events.views import EventDetailView
 
+
 @login_required
 def user_booking(request):
     bookings = Booking.objects.filter(user=request.user)
@@ -28,13 +29,9 @@ def booking_form(request, event_id, ticket_type_id):
             return redirect(EventDetailView, event_id=event.id)
     else:
         form = BookingForm()
-        if user_booking:
-            messages.add_message(request, messages.ERROR, 'You can only book one ticket per event!')
-    
     return render(request, 'bookings/booking_form.html', {
         'event': event,
         'form': form,
-        'user_booking': user_booking,
     })
 
 
@@ -46,5 +43,5 @@ def cancel_booking(request, booking_id):
         messages.add_message(request, messages.SUCCESS, 'Booking canceled!')
     else:
         messages.add_message(request, messages.ERROR, 'You can only cancel your own bookings!')
-        return HttpResponseForbidden() 
+        return HttpResponseForbidden()
     return redirect(request.META.get('HTTP_REFERER', 'user_booking'))

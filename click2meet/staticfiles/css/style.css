@@ -382,20 +382,24 @@ ul {
 
 .btn-primary:hover {
     background-color: var(--vibrant-cyan);
+    border: var(--vibrant-cyan);
 }
 
 .btn-secondary {
-    background-color: var(--warm-coral);
+    background-color: var(--vibrant-cyan);
     color: var(--light-sand);
+    border: var(--soft-mint-green);
 }
 
 .btn-secondary:hover {
     background-color: var(--soft-mint-green);
+    color: var(--deep-sapphire);
 }
 
 .btn-accent {
     background-color: var(--charcoal-gray);
     color: var(--light-sand);
+    border: var(--deep-sapphire);
 }
 
 .btn-accent:hover {
