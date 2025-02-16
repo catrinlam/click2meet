@@ -26,19 +26,27 @@ document.addEventListener("DOMContentLoaded", function() {
     const form = document.querySelector('form[data-quantity-id]');
     if (form) {
         const quantityInputId = form.getAttribute('data-quantity-id');
+        const quantityDisplay = document.getElementById('quantityDisplay');
+        const quantityInput = document.getElementById(quantityInputId);
+
+        // Set initial value to 0
+        quantityDisplay.textContent = '0';
+        quantityInput.value = '0';
 
         document.getElementById('decreaseQuantity').addEventListener('click', function() {
-            var quantityInput = document.getElementById(quantityInputId);
-            var currentValue = parseInt(quantityInput.value);
+            var currentValue = parseInt(quantityDisplay.textContent);
             if (currentValue > 0) {
+                quantityDisplay.textContent = currentValue - 1;
                 quantityInput.value = currentValue - 1;
+                quantityDisplay.setAttribute('aria-valuenow', currentValue - 1);
             }
         });
 
         document.getElementById('increaseQuantity').addEventListener('click', function() {
-            var quantityInput = document.getElementById(quantityInputId);
-            var currentValue = parseInt(quantityInput.value);
+            var currentValue = parseInt(quantityDisplay.textContent);
+            quantityDisplay.textContent = currentValue + 1;
             quantityInput.value = currentValue + 1;
+            quantityDisplay.setAttribute('aria-valuenow', currentValue + 1);
         });
     }
 

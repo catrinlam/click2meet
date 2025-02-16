@@ -47,4 +47,4 @@ def cancel_booking(request, booking_id):
     else:
         messages.add_message(request, messages.ERROR, 'You can only cancel your own bookings!')
         return HttpResponseForbidden() 
-    return redirect('user_booking')
+    return redirect(request.META.get('HTTP_REFERER', 'user_booking'))
