@@ -22,8 +22,27 @@ document.addEventListener("DOMContentLoaded", function() {
             cancelModal.setAttribute("aria-hidden", "true");
         });
     });
-});
 
-document.getElementById('confirmCancel').addEventListener('click', function() {
-    document.getElementById('cancelBookingForm').submit();
+    const form = document.querySelector('form[data-quantity-id]');
+    if (form) {
+        const quantityInputId = form.getAttribute('data-quantity-id');
+
+        document.getElementById('decreaseQuantity').addEventListener('click', function() {
+            var quantityInput = document.getElementById(quantityInputId);
+            var currentValue = parseInt(quantityInput.value);
+            if (currentValue > 0) {
+                quantityInput.value = currentValue - 1;
+            }
+        });
+
+        document.getElementById('increaseQuantity').addEventListener('click', function() {
+            var quantityInput = document.getElementById(quantityInputId);
+            var currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+        });
+    }
+
+    document.getElementById('confirmCancel').addEventListener('click', function() {
+        document.getElementById('cancelBookingForm').submit();
+    });
 });

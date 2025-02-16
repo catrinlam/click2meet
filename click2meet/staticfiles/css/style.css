@@ -292,13 +292,6 @@ ul {
     border-color: transparent #ff007a transparent transparent;
 }
 
-.booking-form {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 1030;
-}
-
 .custom-bg-light {
     background-color: #f8f9fa !important;
 }
@@ -329,4 +322,11 @@ ul {
 
 .footer .text-body:hover {
     color: #fff; /* White color on hover */
+}
+
+.booking-form {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px; /* Add some padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
