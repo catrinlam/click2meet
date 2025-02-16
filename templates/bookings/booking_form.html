@@ -13,18 +13,18 @@
             {% csrf_token %}
             <div class="mb-3">
                 {{ form.quantity.label_tag }}
-                <div class="input-group mt-2 eds-stepper">
-                    <button type="button" class="btn eds-stepper-button" id="decreaseQuantity">
+                <div class="input-group mt-2 form-stepper">
+                    <button type="button" class="btn form-stepper-button" id="decreaseQuantity">
                         <i class="fa-solid fa-minus"></i>
                     </button>
-                    <span id="quantityDisplay" class="eds-stepper-total-quantity">0</span>
+                    <span id="quantityDisplay" class="form-stepper-total-quantity">0</span>
                     <input type="hidden" id="{{ form.quantity.id_for_label }}" name="{{ form.quantity.name }}" value="0">
-                    <button type="button" class="btn eds-stepper-button" id="increaseQuantity">
+                    <button type="button" class="btn form-stepper-button" id="increaseQuantity">
                         <i class="fa-solid fa-plus"></i>
                     </button>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary ">
                 <i class="fas fa-ticket-alt"></i> Purchase
             </button>
         </form>

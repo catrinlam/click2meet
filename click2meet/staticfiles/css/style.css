@@ -352,19 +352,52 @@ ul {
     text-align: center;
 }
 
-.eds-stepper {
+.form-stepper {
     display: flex;
     align-items: center;
 }
 
-.eds-stepper-button {
-    border: 1px solid var(--soft-mint-green);
-    border-radius: 4px;
+.form-stepper-button {
+    background-color: var(--deep-sapphire);
+    color: var(--light-sand);
+    border-radius: 12px !important;
     padding: 5px 10px;
 }
 
-.eds-stepper-total-quantity {
+.form-stepper-button:hover {
+    background-color: var(--vibrant-cyan);
+}
+
+.form-stepper-total-quantity {
     margin-right: 10px;
     margin-left: 10px !important;
     font-size: 1.2rem;
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: var(--deep-sapphire);
+    color: var(--light-sand);
+}
+
+.btn-primary:hover {
+    background-color: var(--vibrant-cyan);
+}
+
+.btn-secondary {
+    background-color: var(--warm-coral);
+    color: var(--light-sand);
+}
+
+.btn-secondary:hover {
+    background-color: var(--soft-mint-green);
+}
+
+.btn-accent {
+    background-color: var(--charcoal-gray);
+    color: var(--light-sand);
+}
+
+.btn-accent:hover {
+    background-color: var(--deep-sapphire);
 }
