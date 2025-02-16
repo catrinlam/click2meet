@@ -23,3 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+document.getElementById('confirmCancel').addEventListener('click', function() {
+    document.getElementById('cancelBookingForm').submit();
+});
