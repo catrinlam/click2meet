@@ -1,28 +1,37 @@
+:root {
+    --deep-sapphire: #0A3D62;
+    --vibrant-cyan: #00B4D8;
+    --soft-mint-green: #90E0EF;
+    --warm-coral: #FF857A;
+    --light-sand: #F9F6F7;
+    --charcoal-gray: #2F3E46;
+}
+
 /* Nav-bar styling */
 .navbar {
     margin-bottom: 20px;
-    background-color: #333; /* Use the same background color as your list items */
+    background-color: var(--charcoal-gray);
 }
 
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #ff007a; /* Use the same pink color */
+    color: var(--warm-coral);
 }
 
 .navbar-nav .nav-link {
     font-size: 1.2rem;
     padding: 10px 15px;
-    color: #fff; /* White color for the links */
+    color: var(--light-sand);
 }
 
 .navbar-nav .nav-link.active {
-    background-color: #ff007a; /* Use the same pink color */
+    background-color: var(--warm-coral);
     border-radius: 5px;
 }
 
 .navbar-nav .nav-link:hover {
-    background-color: #444; /* Slightly lighter background on hover */
+    background-color: var(--deep-sapphire);
     border-radius: 5px;
 }
 
@@ -36,18 +45,18 @@
 }
 
 .event .btn {
-    background: #ff007a;
+    background: var(--warm-coral);
 }
 
 .event .nav-content strong {
     display: block;
     font-family: Montserrat;
     font-size: 20px;
-    color: #002691;
+    color: var(--deep-sapphire);
 }
 
 .event nav > div a.nav-item.nav-link.active .event .spicel-features {
-    background: #fafaff;
+    background: var(--light-sand);
 }
 
 .event .nav-fill .nav-item {
@@ -71,7 +80,7 @@
 
 .event nav > .nav.nav-tabs {
     border: none;
-    color: #fff;
+    color: var(--light-sand);
     border-radius: 0;
     flex-wrap: inherit;
     padding: 0 30px;
@@ -82,23 +91,23 @@
 }
 
 .event a.nav-item.nav-link.active {
-    background: #ff007a !important;
-    color: #fff !important;
+    background: var(--warm-coral) !important;
+    color: var(--light-sand) !important;
 }
 
 .event a.nav-item.nav-link.active strong {
-    color: #fff;
+    color: var(--light-sand);
 }
 
 .event nav > div a.nav-item.nav-link,
 .event nav > div a.nav-item.nav-link.active {
     border: none;
     padding: 18px 25px;
-    color: #47759d;
+    color: var(--vibrant-cyan);
     border-radius: 0;
-    background: #fff;
+    background: var(--light-sand);
     position: relative;
-    background: #f5faff;
+    background: var(--soft-mint-green);
 }
 
 .event nav > div a.nav-item.nav-link.active:after {
@@ -106,7 +115,7 @@
     height: 0;
     border-style: solid;
     border-width: 0 15px 15px 0;
-    border-color: transparent #e7015e transparent transparent;
+    border-color: transparent var(--warm-coral) transparent transparent;
     position: absolute;
     left: 0;
     bottom: -15px;
@@ -116,7 +125,7 @@
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
     -ms-transition: all 0.4s ease;
-    border-color: transparent #ff007a transparent transparent;
+    border-color: transparent var(--warm-coral) transparent transparent;
 }
 
 .event .tab-content {
@@ -129,12 +138,12 @@
 
 .event .user p {
     font-weight: bold;
-    color: #ff007a;
+    color: var(--warm-coral);
 }
 
 .event .user ul {
     padding-top: 10px;
-    border-top: 1px solid #edf5ff;
+    border-top: 1px solid var(--soft-mint-green);
 }
 
 .event .user ul li {
@@ -150,21 +159,21 @@
     margin-right: 20px;
     padding: 50px;
     position: relative;
-    border: 10px solid #edf5ff;
+    border: 10px solid var(--soft-mint-green);
     transition: all 0.3s ease 0s;
 }
 
 .event-list-content:hover {
-    border: 10px solid #ff007a;
+    border: 10px solid var(--warm-coral);
 }
 
 .event-list-content .crical {
     position: absolute;
-    background: #ff007a;
+    background: var(--warm-coral);
     right: -66px;
     bottom: -73px;
     font-size: 30px;
-    color: #fff;
+    color: var(--light-sand);
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -177,21 +186,21 @@
 
 .event-list-content .btn {
     background: none;
-    border: 2px solid #edf5ff;
-    color: #47759d;
+    border: 2px solid var(--soft-mint-green);
+    color: var(--vibrant-cyan);
     font-weight: bold;
     font-size: 14px;
     margin-right: 10px;
 }
 
 .event-list-content .btn:hover {
-    background: #ff007a;
-    border: 2px solid #ff007a;
-    color: #fff;
+    background: var(--warm-coral);
+    border: 2px solid var(--warm-coral);
+    color: var(--light-sand);
     font-weight: bold;
     font-size: 14px;
     margin-right: 10px;
-    box-shadow: 0px 10px 19px 0px #ff007a66 !important;
+    box-shadow: 0px 10px 19px 0px var(--warm-coral66) !important;
 }
 
 .event-list-content ul li {
@@ -199,7 +208,7 @@
     font-size: 16px;
     margin-right: 20px;
     margin-bottom: 20px;
-    color: #ff007a;
+    color: var(--warm-coral);
 }
 
 .event-list-content ul li i {
@@ -238,7 +247,7 @@ h5 {
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
-    color: #002691;
+    color: var(--deep-sapphire);
     margin-top: 0px;
     font-style: normal;
     font-weight: bold;
@@ -247,11 +256,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .event .user p {
     font-weight: bold;
-    color: #ff007a;
+    color: var(--warm-coral);
 }
 .event .user ul {
     padding-top: 10px;
-    border-top: 1px solid #edf5ff;
+    border-top: 1px solid var(--soft-mint-green);
 }
 ul {
     margin: 0px;
@@ -260,11 +269,11 @@ ul {
 
 .event-list-content .crical {
     position: absolute;
-    background: #ff007a;
+    background: var(--warm-coral);
     right: -66px;
     bottom: -73px;
     font-size: 30px;
-    color: #fff;
+    color: var(--light-sand);
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -279,7 +288,7 @@ ul {
     height: 0;
     border-style: solid;
     border-width: 0 15px 15px 0;
-    border-color: transparent #e7015e transparent transparent;
+    border-color: transparent var(--warm-coral) transparent transparent;
     position: absolute;
     left: 0;
     bottom: -15px;
@@ -289,44 +298,73 @@ ul {
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
     -ms-transition: all 0.4s ease;
-    border-color: transparent #ff007a transparent transparent;
+    border-color: transparent var(--warm-coral) transparent transparent;
 }
 
 .custom-bg-light {
-    background-color: #f8f9fa !important;
+    background-color: var(--light-sand) !important;
 }
 
 .custom-border-top {
-    border-top: 1px solid #dee2e6 !important;
+    border-top: 1px solid var(--soft-mint-green) !important;
 }
 
 /* Footer styling */
 .footer {
-    background-color: #333; /* Use the same background color as your list items */
-    color: #fff; /* White color for the text */
+    background-color: var(--charcoal-gray) !important;
+    color: var(--light-sand);
     padding: 20px 0;
 }
 
 .footer .btn-floating {
     font-size: 1.2rem;
-    color: #fff; /* White color for the icons */
+    color: var(--light-sand);
 }
 
 .footer .btn-floating:hover {
-    color: #ff007a; /* Use the same pink color on hover */
+    color: var(--warm-coral);
 }
 
 .footer .text-body {
-    color: #ff007a; /* Use the same pink color for the links */
+    color: var(--warm-coral) !important;
 }
 
 .footer .text-body:hover {
-    color: #fff; /* White color on hover */
+    color: var(--light-sand);
 }
 
 .booking-form {
-    background-color: #f8f9fa; /* Light background color */
-    padding: 20px; /* Add some padding */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: var(--light-sand);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form label{
+    font-weight: bold;
+}
+
+.booking-form input {
+    border-radius: 4px;
+    border: none;
+    padding: 5px;
+    width: 20%;
+    text-align: center;
+}
+
+.eds-stepper {
+    display: flex;
+    align-items: center;
+}
+
+.eds-stepper-button {
+    border: 1px solid var(--soft-mint-green);
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.eds-stepper-total-quantity {
+    margin-right: 10px;
+    margin-left: 10px !important;
+    font-size: 1.2rem;
 }
