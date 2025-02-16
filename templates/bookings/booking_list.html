@@ -9,7 +9,7 @@
         {% for booking in bookings %}
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div>
-                    <strong>{{ booking.ticket_type }}</strong> - {{ booking.quantity }} - {{ booking.booked_at }} - {{ booking.payment_status }}
+                    <strong><a href="{% url 'event_detail' booking.ticket_type.event.id %}">{{ booking.ticket_type }}</a></strong> - {{ booking.quantity }} - {{ booking.booked_at }} - {{ booking.payment_status }}
                 </div>
                 <button type="button" class="btn btn-danger btn-sm btn-cancel cancel-booking" data-booking-id="{{ booking.id }}" data-bs-toggle="modal" data-bs-target="#cancelModal">Cancel Booking</button>
             </li>

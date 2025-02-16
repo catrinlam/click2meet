@@ -1,14 +1,23 @@
 <div>
-    <form method="post" class="bg-light p-3 border-top" action="{% url 'create_booking' event.id %}">
-        {% csrf_token %}
-        {{form.ticket_type.label_tag}}
-        {{form.ticket_type}}
-        {{form.quantity.label_tag}}
-        {{form.quantity}}
-        {{form.payment_status.label_tag}}
-        {{form.payment_status}}
-        <button type="submit" class="btn btn-primary">
-            <i class="fas fa-ticket-alt"></i> byee
-        </button>
-    </form>
+    {% if user_booking %}
+        <p>You have purchased {{ user_booking.quantity }} ticket(s).</p>
+        <form method="post" action="{% url 'cancel_booking' user_booking.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">
+                <i class="fas fa-times"></i> Cancel Booking
+            </button>
+        </form>
+    {% else %}
+        <form method="post" class="bg-light p-3 border-top" action="{% url 'booking_form' event.id ticket.id %}">
+            {% csrf_token %}
+            {{ form.quantity.label_tag }}
+            {{ form.quantity }}
+            {{ form.payment_status.label_tag }}
+            {{ form.payment_status }}
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-ticket-alt"></i> Purchase
+            </button>
+        </form>
+    {% endif %}
 </div>
+
