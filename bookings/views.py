@@ -5,11 +5,25 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
 from django.contrib import messages
 from events.models import Event, TicketType
+from django.db.models import Q
 
 
 @login_required
 def user_booking(request):
-    bookings = Booking.objects.filter(user=request.user).order_by('booked_at')
+    search_query = request.GET.get('search', '')
+    filter_status = request.GET.get('filter', '')
+    
+    bookings = Booking.objects.filter(user=request.user)
+
+    if search_query:
+        bookings = bookings.filter(
+            Q(ticket_type__name__icontains=search_query) |
+            Q(ticket_type__event__name__icontains=search_query)
+        )
+
+    if filter_status:
+        bookings = bookings.filter(payment_status=filter_status)
+
     return render(request, 'bookings/booking_list.html', {'bookings': bookings})
 
 
