@@ -1,47 +1,117 @@
 {% extends 'base.html' %} {% load static %}
 {% block head_title %}Events{% endblock %}
 {% block content %}
+
+<!-- <div class="event">
     <div class="container">
         <div class="row">
-        <div class="col-md-12">
-            <div class="tab-content py-3 px-3 px-sm-0 wow fadeInDown  animated" data-animation="fadeInDown animated" data-delay=".2s" id="nav-tabContent" style="visibility: visible; animation-name: fadeInDown;">
-                <div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <h1 class="text-center">Welcome to the Home Page</h1>
-                    <!-- row loop -->
-                     {% for event in events %}
-
-                        <div class="row mb-30 text-center">
-                        <div class="col-md-2 col-sm-12">
-                            <div class="user">
-                                <div class="title">
-                                    <img src="{{ event.image.url}}" alt="img">
+            <div class="col-md-12">
+                <div class="tab-content py-3 px-3 px-sm-0 wow fadeInDown  animated" data-animation="fadeInDown animated" data-delay=".2s" id="nav-tabContent" style="visibility: visible; animation-name: fadeInDown;">
+                    <div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <h1 class="text-center">Welcome to the Home Page</h1>
+                        {% for event in events %}
+                        {% if forloop.counter|divisibleby:2 %}
+                            <div id="row" class="row text-start">
+                                
+                                 <div class="col-md-7 col-sm-12">
+                                    <div id="event-list-content" class="event-list-content fix">
+                                        <ul data-animation="fadeInUp animated" data-delay=".2s" style="animation-delay: 0.2s;" class="">
+                                            <li><i class="fas fa-map-marker-alt"></i>{{event.event.address}}, {{event.event.city}}</li>
+                                            <li><i class="far fa-clock"></i>{{event.event.time}}</li>
+                                        </ul>
+                                        <h2>{{event.event.organizer}}</h2>
+                                        <p class="lineClamp">{{event.event.description}}</p>
+                                        <a href="#" class="btn mt-20 mr-10">Buy Ticket</a>
+                                        <a href="{% url 'event_detail' event.id %}" class="btn mt-20">Read More</a>
+                                        <div class="crical"><i class="fal fa-magic"></i> </div>
+                                    </div>
                                 </div>
+                                <div class="col-md-5 col-sm-12">
+                                    <div class="position-relative">
+                                        <img src="{{ event.image.url}}" alt="img">
+                                        <div class="events-date">
+                                            <div class="font-size28">{{ event.event.date|date:"d" }}</div>
+                                            <div class="font-size14">{{ event.event.date|date:"M" }}</div>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>  
+                        {% else %}
+                            <div id="row" class="row mb-30 text-center">
+                                <div class="col-md-5 col-sm-12">
+                                    <div class="position-relative">
+                                        <img src="{{ event.image.url}}" alt="img">
+                                        <div class="events-date">
+                                            <div class="font-size28">{{ event.event.date|date:"d" }}</div>
+                                            <div class="font-size14">{{ event.event.date|date:"M" }}</div>
+                                         </div>
+                                    </div>
+                                </div>
+                                 <div class="col-md-7 col-sm-12">
+                                    <div class="event-list-content fix">
+                                        <ul data-animation="fadeInUp animated" data-delay=".2s" style="animation-delay: 0.2s;" class="">
+                                            <li><i class="fas fa-map-marker-alt"></i>{{event.event.address}}, {{event.event.city}}</li>
+                                            <li><i class="far fa-clock"></i>{{event.event.time}}</li>
+                                        </ul>
+                                        <h2>{{event.event.organizer}}</h2>
+                                        <p class="lineClamp">{{event.event.description}}</p>
+                                        <a href="#" class="btn mt-20 mr-10">Buy Ticket</a>
+                                        <a href="{% url 'event_detail' event.id %}" class="btn mt-20">Read More</a>
+                                        <div class="crical"><i class="fal fa-magic"></i> </div>
+                                    </div>
+                                </div>
+                               
                             </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="col-lg-12 justify-content-center text-center">
+        <a href="{% url 'event_list' %}" class="btn mt-20 mr-10">More Event  +</a>
+    </div>
+    </div>
+</div> -->
+<section class="section gray-bg" id="event">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 text-center">
+                        <div class="section-title">
+                            <h2>Latest News</h2>
+                            <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites</p>
                         </div>
-                        <div class="col-md-10 col-sm-12">
-                            <div class="event-list-content fix">
-                                <ul data-animation="fadeInUp animated" data-delay=".2s" style="animation-delay: 0.2s;" class="">
-                                    <li>{{event.event.address}}, {{event.event.city}}</li>
-                                    <li>{{event.event.time}}</li>
-                                </ul>
-                                <h2>{{event.event.organizer}}</h2>
-                                <p>{{event.event.description}}</p>
-                                <a href="#" class="btn mt-20 mr-10"><i class="far fa-ticket-alt"></i> Buy Ticket</a>
-                                <a href="{% url 'event_detail' event.id %}" class="btn mt-20">Read More</a>
-                                <div class="crical"><i class="fal fa-video"></i> </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for event in events %}
+
+                    <div class="col-lg-4">
+                        <div class="event-grid">
+                            <div class="event-img">
+                                <div class="date">{{ event.event.date|date:"d M" }}</div>
+                                <a href="#">
+                                    <img src="{{ event.image.url}}" alt="">
+                                </a>
+                            </div>
+                            <div class="event-info">
+                                <h5><a href="#">{{event.event.organizer}}</a></h5>
+                                <div class="event-location">
+                                    <ul data-animation="fadeInUp animated" data-delay=".2s" style="animation-delay: 0.2s;">
+                                        <li class="lineClamp"><i class="fas fa-map-marker-alt"></i> {{event.event.address}}, {{event.event.city}}</li>
+                                        <li><i class="far fa-clock"></i> {{event.event.time}}</li>
+                                    </ul>
+                                    <a href="{% url 'event_detail' event.id %}" class="btn">
+                                        Read More
+                    
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                     {% endfor %}
-                    
-                    
-                    
-
+                    {% endfor %}
                 </div>
             </div>
-            
-        </div>
-    </div>
-    </div>
+        </section>
 {% endblock %}
