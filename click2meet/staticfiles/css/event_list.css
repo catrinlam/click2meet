@@ -1,0 +1,94 @@
+
+
+.section {
+    padding: 100px 0;
+    position: relative;
+}
+.gray-bg {
+    background-color: #ebf4fa;
+}
+/* event 
+---------------------*/
+.event-grid {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.event-img {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.event-img .date {
+  position: absolute;
+  background: #3a3973;
+  color: #ffffff;
+  padding: 8px 15px;
+  left: 0;
+  top: 10px;
+  font-size: 14px;
+}
+.event-info {
+  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+  border-radius: 5px;
+  background: #ffffff;
+  padding: 20px;
+  margin: -30px 20px 0;
+  position: relative;
+}
+.event-info {
+    border: 10px solid #edf5ff;
+    transition: all 0.3s ease 0s;
+}
+
+.event-info:hover {
+    border: 10px solid #ff007a;
+}
+.event-img img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: all 0.3s ease 0s;
+}
+.event-location ul li {
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    color: #ff007a;
+}
+.event-info .btn {
+    background: none;
+    border: 2px solid #edf5ff;
+    color: #47759d;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.event-info .btn:hover {
+    background: #ff007a;
+    border: 2px solid #ff007a;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 10px;
+    box-shadow: 0px 10px 19px 0px #ff007a66 !important;
+}
+.event-grid .event-info h5 {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 0 10px;
+}
+.event-grid .event-info h5 a {
+  color: #002691;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+.event-location .lineClamp {
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+}
