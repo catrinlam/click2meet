@@ -29,7 +29,7 @@
                                         </ul>
                                         <h2>{{event.organizer}}</h2>
                                         <p class="lineClamp">{{event.description}}</p>
-                                        <a href="#" class="btn mt-20 mr-10">Buy Ticket</a>
+                                        <a href="{% url 'event_detail' event.id %}" class="btn mt-20 mr-10">Buy Ticket</a>
                                         <a href="{% url 'event_detail' event.id %}" class="btn mt-20">Read More</a>
                                         <div class="crical"><i class="fal fa-magic"></i> </div>
                                     </div>
