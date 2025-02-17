@@ -371,7 +371,7 @@ ul {
 
 .form-stepper-button {
     background-color: var(--deep-sapphire);
-    color: var(--light-sand);
+    color: var (--light-sand);
     border-radius: 12px !important;
     padding: 5px 10px;
 }
@@ -399,13 +399,13 @@ ul {
 
 .btn-secondary {
     background-color: var(--vibrant-cyan);
-    color: var(--light-sand);
+    color: var (--light-sand);
     border: var(--soft-mint-green);
 }
 
 .btn-secondary:hover {
     background-color: var(--soft-mint-green);
-    color: var(--deep-sapphire);
+    color: var (--deep-sapphire);
 }
 
 .btn-accent {
@@ -550,5 +550,58 @@ ul {
         padding: 5px 15px;
         margin-right: 0px;
 
+    }
+}
+
+/* Booking List Styling */
+.table-responsive {
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.table a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.table a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Table Styling */
+@media screen and (max-width: 760px) {
+    .table thead {
+        display: none;
+    }
+
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    .table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 0%;
+        position: relative;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-align: left;
     }
 }

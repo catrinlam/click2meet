@@ -2,28 +2,31 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+{% block head_title %}Sign Out{% endblock %}
 
 {% block content %}
-<div class="container mt-3">
-    <div class="card mx-auto">
+<div class="container mt-4 p-4">
+    <div class="card mx-auto  p-4">
         <!-- Card Header -->
         <div class=" text-center ">
             <h4 class="mb-0">Sign Out</h4>
         </div>
-        
+
         <!-- Card Body -->
         <div class="card-body text-center">
-            <p class="mb-4">Are you sure you want to sign out?</p>
+            <p class="mb-4">
+                Hi, {{ user.username }}
+                <br>
+                Are you sure you want to sign out?
+            </p>
             <form method="post" action="{% url 'account_logout' %}">
                 {% csrf_token %}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                
 
-                <div class="d-flex justify-content-center mt-4">
-                    <a href="{% url 'event_list' %}" class="btn btn-secondary me-3">Go back to events</a>
+                <div class="mt-4 d-flex  align-items-center justify-content-center">
+                    <a href="javascript:history.back()" class="btn btn-secondary me-5">Cancel</a>
                     <button class="btn btn-danger" type="submit">Logout</button>
                 </div>
             </form>

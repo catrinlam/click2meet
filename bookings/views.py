@@ -5,12 +5,25 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
 from django.contrib import messages
 from events.models import Event, TicketType
-from events.views import EventDetailView
+from django.db.models import Q
 
 
 @login_required
 def user_booking(request):
+    search_query = request.GET.get('search', '')
+    filter_status = request.GET.get('filter', '')
+    
     bookings = Booking.objects.filter(user=request.user)
+
+    if search_query:
+        bookings = bookings.filter(
+            Q(ticket_type__name__icontains=search_query) |
+            Q(ticket_type__event__name__icontains=search_query)
+        )
+
+    if filter_status:
+        bookings = bookings.filter(payment_status=filter_status)
+
     return render(request, 'bookings/booking_list.html', {'bookings': bookings})
 
 
@@ -26,7 +39,7 @@ def booking_form(request, event_id, ticket_type_id):
             booking.ticket_type = ticket_type
             booking.save()
             messages.add_message(request, messages.SUCCESS, 'Booking created!')
-            return redirect(EventDetailView, event_id=event.id)
+            return redirect('user_booking')
     else:
         form = BookingForm()
     return render(request, 'bookings/booking_form.html', {
