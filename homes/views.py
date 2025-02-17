@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from events.models import EventImage
+from events.models import Event
 
 def home(request):
-    events = EventImage.objects.all()
+    events = Event.objects.all().prefetch_related('images').order_by('-created_at')[:3]
     context = {
         'events': events
     }
