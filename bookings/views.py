@@ -5,12 +5,11 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
 from django.contrib import messages
 from events.models import Event, TicketType
-from events.views import EventDetailView
 
 
 @login_required
 def user_booking(request):
-    bookings = Booking.objects.filter(user=request.user)
+    bookings = Booking.objects.filter(user=request.user).order_by('booked_at')
     return render(request, 'bookings/booking_list.html', {'bookings': bookings})
 
 

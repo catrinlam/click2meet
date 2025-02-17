@@ -5,16 +5,34 @@
 {% block content %}
 <div class="container">
     <h1 class="my-4">Booking List</h1>
-    <ul class="list-group">
-        {% for booking in bookings %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <div class="me-1">
-                    <strong><a href="{% url 'event_detail' booking.ticket_type.event.id %}">{{ booking.ticket_type }}</a></strong> - {{ booking.quantity }} - {{ booking.booked_at }} - {{ booking.payment_status }}
-                </div>
-                <button type="button" class="btn btn-danger btn-sm btn-cancel cancel-booking" data-booking-id="{{ booking.id }}" data-bs-toggle="modal" data-bs-target="#cancelModal">Cancel Booking</button>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Ticket Type</th>
+                    <th scope="col">Event</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Booked At</th>
+                    <th scope="col">Payment Status</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                    <tr>
+                        <td><strong><a href="{% url 'event_detail' booking.ticket_type.event.id %}">{{ booking.ticket_type }}</a></strong></td>
+                        <td>{{ booking.ticket_type.event.name }}</td>
+                        <td>{{ booking.quantity }}</td>
+                        <td>{{ booking.booked_at }}</td>
+                        <td>{{ booking.payment_status }}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm btn-cancel cancel-booking" data-booking-id="{{ booking.id }}" data-bs-toggle="modal" data-bs-target="#cancelModal">Cancel Booking</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <!-- Cancel confirmation modal -->
