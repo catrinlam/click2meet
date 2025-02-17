@@ -1,19 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const cancelButtons = document.querySelectorAll(".btn-danger[data-bs-toggle='modal']");
+    const cancelButtons = document.getElementsByClassName("cancel-booking");
     const cancelModal = document.getElementById("cancelModal");
     const confirmCancel = document.getElementById("confirmCancel");
-    const cancelBookingForm = document.getElementById("cancelBookingForm");
 
-    cancelButtons.forEach(button => {
+    for (let button of cancelButtons) {
         button.addEventListener("click", (e) => {
             let bookingId = e.target.getAttribute("data-booking-id");
-            cancelBookingForm.action = `/bookings/cancel/${bookingId}/`;
+            confirmCancel.href = `cancel/${bookingId}`;
             cancelModal.classList.add("show");
             cancelModal.style.display = "block";
             cancelModal.setAttribute("aria-modal", "true");
             cancelModal.removeAttribute("aria-hidden");
         });
-    });
+    }
 
     document.querySelectorAll('[data-bs-dismiss="modal"]').forEach(function(button) {
         button.addEventListener("click", function() {
@@ -70,8 +69,4 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-
-    confirmCancel.addEventListener('click', function() {
-        cancelBookingForm.submit();
-    });
 });

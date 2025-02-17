@@ -552,3 +552,56 @@ ul {
 
     }
 }
+
+/* Booking List Styling */
+.table-responsive {
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.table a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.table a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Table Styling */
+@media screen and (max-width: 760px) {
+    .table thead {
+        display: none;
+    }
+
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    .table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 0%;
+        position: relative;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-align: left;
+    }
+}

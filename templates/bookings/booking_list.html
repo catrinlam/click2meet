@@ -5,16 +5,59 @@
 {% block content %}
 <div class="container">
     <h1 class="my-4">Booking List</h1>
-    <ul class="list-group">
-        {% for booking in bookings %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <div class="me-1">
-                    <strong><a href="{% url 'event_detail' booking.ticket_type.event.id %}">{{ booking.ticket_type }}</a></strong> - {{ booking.quantity }} - {{ booking.booked_at }} - {{ booking.payment_status }}
+    <form method="get" action="{% url 'user_booking' %}">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" id="searchInput" name="search" class="form-control" placeholder="Search for events..." value="{{ request.GET.search }}">
+                    <button class="btn btn-primary" id="searchButton" type="submit">Search</button>
                 </div>
-                <button type="button" class="btn btn-danger btn-sm btn-cancel cancel-booking" data-booking-id="{{ booking.id }}" data-bs-toggle="modal" data-bs-target="#cancelModal">Cancel Booking</button>
-            </li>
-        {% endfor %}
-    </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <select id="filterSelect" name="filter" class="form-control">
+                        <option value="">All Payment Status</option>
+                        <option value="paid" {% if request.GET.filter == 'paid' %}selected{% endif %}>Paid</option>
+                        <option value="pending" {% if request.GET.filter == 'pending' %}selected{% endif %}>Pending</option>
+                        <option value="cancelled" {% if request.GET.filter == 'cancelled' %}selected{% endif %}>Cancelled</option>
+                    </select>
+                    <button class="btn btn-primary" id="filterButton" type="submit">Apply Filter</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Ticket Type</th>
+                    <th scope="col">Event</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Booked At</th>
+                    <th scope="col">Payment Status</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="bookingTableBody">
+                    {% for booking in bookings %}
+                        <tr>
+                            <td data-label="Ticket Type"><strong><a href="{% url 'event_detail' booking.ticket_type.event.id %}">{{ booking.ticket_type }}</a></strong></td>
+                            <td data-label="Event">{{ booking.ticket_type.event.name }}</td>
+                            <td data-label="Quantity">{{ booking.quantity }}</td>
+                            <td data-label="Booked At">{{ booking.booked_at }}</td>
+                            <td data-label="Payment Status">{{ booking.payment_status }}</td>
+                            <td data-label="Actions">
+                            <button type="button" class="btn btn-danger btn-sm btn-cancel cancel-booking" data-booking-id="{{ booking.id }}" data-bs-toggle="modal" data-bs-target="#cancelModal">Cancel Booking</button>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center">You have no bookings.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <!-- Cancel confirmation modal -->
@@ -30,9 +73,10 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a id="cancelConfirm" href="#" class="btn btn-danger">Cancel</a>
+                <a id="confirmCancel" href="#" class="btn btn-danger">Cancel</a>
             </div>
         </div>
     </div>
 </div>
+
 {% endblock %}

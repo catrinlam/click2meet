@@ -2,44 +2,73 @@
 {% block head_title %}Events{% endblock %}
 {% block content %}
 <section class="section gray-bg" id="event">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-7 text-center">
-                        <div class="section-title">
-                            <h2>Latest News</h2>
-                            <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites</p>
-                        </div>
-                    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 text-center">
+                <div class="section-title">
+                    <h2>Latest News</h2>
                 </div>
-                <div class="row">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <form method="get" action="{% url 'event_list' %}">
+                    <div class="mb-3">
+                        <input type="text" id="searchInput" name="search" class="form-control" placeholder="Search for events..." value="{{ search_query }}">
+                    </div>
+                    <div class="mb-3">
+                        <select id="cityFilter" name="city" class="form-control">
+                            <option value="">All Cities</option>
+                            <option value="London" {% if city_filter == 'London' %}selected{% endif %}>London</option>
+                            <option value="Manchester" {% if city_filter == 'Manchester' %}selected{% endif %}>Manchester</option>
+                            <option value="Birmingham" {% if city_filter == 'Birmingham' %}selected{% endif %}>Birmingham</option>
+                            <option value="Bristol" {% if city_filter == 'Bristol' %}selected{% endif %}>Bristol</option>
+                            <option value="Liverpool" {% if city_filter == 'Liverpool' %}selected{% endif %}>Liverpool</option>
+                            <option value="Leeds" {% if city_filter == 'Leeds' %}selected{% endif %}>Leeds</option>
+                            <option value="Sheffield" {% if city_filter == 'Sheffield' %}selected{% endif %}>Sheffield</option>
+                            <option value="Edinburgh" {% if city_filter == 'Edinburgh' %}selected{% endif %}>Edinburgh</option>
+                            <option value="Glasgow" {% if city_filter == 'Glasgow' %}selected{% endif %}>Glasgow</option>
+                            <option value="Newcastle" {% if city_filter == 'Newcastle' %}selected{% endif %}>Newcastle</option>
+                            <option value="Nottingham" {% if city_filter == 'Nottingham' %}selected{% endif %}>Nottingham</option>
+                            <option value="Cardiff" {% if city_filter == 'Cardiff' %}selected{% endif %}>Cardiff</option>
+                            <option value="Belfast" {% if city_filter == 'Belfast' %}selected{% endif %}>Belfast</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <input type="date" id="dateFilter" name="date" class="form-control" value="{{ date_filter }}">
+                    </div>
+                    <button class="btn btn-primary w-100" id="filterButton" type="submit">Apply Filters</button>
+                </form>
+            </div>
+            <div class="col-md-9">
+                <div class="row" id="eventList">
                     {% for event in events %}
-
-                    <div class="col-lg-4">
-                        <div class="event-grid">
-                            <div class="event-img">
-                                <div class="date">{{ event.date|date:"d M" }}</div>
-                                <a href="#">
-                                    <img src="{{ event.images.first.image.url}}" alt="{{ event.name }}">
-                                </a>
-                            </div>
-                            <div class="event-info">
-                                <h5><a href="#">{{event.organizer}}</a></h5>
-                                <div class="event-location">
-                                    <ul data-animation="fadeInUp animated" data-delay=".2s" style="animation-delay: 0.2s;">
-                                        <li class="lineClamp"><i class="fas fa-map-marker-alt"></i> {{event.address}}, {{event.city}}</li>
-                                        <li><i class="far fa-clock"></i> {{event.time}}</li>
-                                    </ul>
-                                    <a href="{% url 'event_detail' event.id %}" class="btn">
-                                        Read More
-                    
+                        <div class="col-lg-4 event-item">
+                            <div class="event-grid">
+                                <div class="event-img">
+                                    <div class="date">{{ event.date|date:"d M" }}</div>
+                                    <a href="#">
+                                        <img src="{{ event.images.first.image.url}}" alt="{{ event.name }}">
                                     </a>
+                                </div>
+                                <div class="event-info">
+                                    <h5><a href="#">{{ event.organizer }}</a></h5>
+                                    <div class="event-location">
+                                        <ul data-animation="fadeInUp animated" data-delay=".2s" style="animation-delay: 0.2s;">
+                                            <li class="lineClamp"><i class="fas fa-map-marker-alt"></i> {{ event.address }}, {{ event.city }}</li>
+                                            <li><i class="far fa-clock"></i> {{ event.time }}</li>
+                                        </ul>
+                                        <a href="{% url 'event_detail' event.id %}" class="btn">
+                                            Read More
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
                     {% endfor %}
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 {% endblock %}
