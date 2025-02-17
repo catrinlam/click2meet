@@ -4,7 +4,7 @@ from bookings.models import Booking
 from bookings.forms import BookingForm
 
 def EventListView(request):
-    events = EventImage.objects.all()
+    events = Event.objects.all().prefetch_related('images').order_by('-created_at')
     context = {
         'events': events
     }
@@ -13,7 +13,7 @@ def EventListView(request):
 
 def EventDetailView(request, event_id):
     event = get_object_or_404(
-        Event.objects.prefetch_related('images', 'ticket_types'),
+        Event.objects.all().prefetch_related('images', 'ticket_types'),
         pk=event_id
     )
     user_bookings = Booking.objects.filter(ticket_type__event=event, user=request.user)

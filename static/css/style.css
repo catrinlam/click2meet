@@ -1,4 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+/* Nav-bar styling */
+.navbar {
+    background-color: #333; /* Use the same background color as your list items */
+}
 
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff007a; /* Use the same pink color */
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    color: #fff; /* White color for the links */
+}
+
+.navbar-nav .nav-link.active {
+    background-color: #ff007a; /* Use the same pink color */
+    border-radius: 5px;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #444; /* Slightly lighter background on hover */
+    border-radius: 5px;
+}
 
 .event .title {
     margin: 0px 0 0;
@@ -11,7 +43,7 @@
 
 .event .btn {
     background: #ff007a;
-}
+    margin-top: 20px;}
 
 .event .nav-content strong {
     display: block;
@@ -127,7 +159,12 @@
     border: 10px solid #edf5ff;
     transition: all 0.3s ease 0s;
 }
-
+#event-list-content {
+    margin-left: 0px;
+}
+#row {
+    margin-bottom: 30px
+}
 .event-list-content:hover {
     border: 10px solid #ff007a;
 }
@@ -237,7 +274,7 @@ ul {
     background: #ff007a;
     right: -66px;
     bottom: -73px;
-    font-size: 30px;
+    font-size: 50px;
     color: #fff;
     width: 200px;
     height: 200px;
@@ -264,4 +301,178 @@ ul {
     -moz-transition: all 0.4s ease;
     -ms-transition: all 0.4s ease;
     border-color: transparent #ff007a transparent transparent;
+}
+
+.booking-form {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1030;
+}
+
+.custom-bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.custom-border-top {
+    border-top: 1px solid #dee2e6 !important;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #333; /* Use the same background color as your list items */
+    color: #fff; /* White color for the text */
+    padding: 20px 0;
+}
+
+.footer .btn-floating {
+    font-size: 1.2rem;
+    color: #fff; /* White color for the icons */
+}
+
+.footer .btn-floating:hover {
+    color: #ff007a; /* Use the same pink color on hover */
+}
+
+.footer .text-body {
+    color: #ff007a; /* Use the same pink color for the links */
+}
+
+.footer .text-body:hover {
+    color: #fff; /* White color on hover */
+}
+.position-relative {
+    position: relative !important;
+}
+
+.events-date {
+    text-align: center;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background-color: rgba(25, 47, 89, 0.9);
+    color: #fff;
+    padding: 12px 20px 8px 20px;
+    text-transform: uppercase
+}
+.lineClamp {
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1199px) {
+    .events-date {
+        padding: 10px 15px 5px 15px;
+        top: 10px;
+        right: 10px;
+        font-weight: bold;
+    }
+    .event-list-content .crical {
+    position: absolute;
+    background: #ff007a;
+    right: -56px;
+    bottom: -43px;
+    font-size: 40px;
+    color: #fff;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    padding-top: 20px;
+    padding-left: 10px;
+
+}
+.event-list-content {
+    padding: 5px 15px;
+    margin-right: 0px;
+
+}
+}
+@media screen and (max-width: 992px) {
+    .events-date {
+        padding: 10px 15px 10px 15px;
+        font-size: 1rem;
+        top: 10px;
+        right: 10px;
+        font-weight: bold;
+    }
+    .event-list-content .crical {
+    position: absolute;
+    background: #ff007a;
+    right: -56px;
+    bottom: -43px;
+    font-size: 30px;
+    color: #fff;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    padding-top: 22px;
+    padding-left: 10px;
+
+}
+.event-list-content {
+    padding: 5px 15px;
+    margin-right: 0px;
+
+}
+    
+}
+@media screen and (max-width: 768px) {
+    .events-date {
+        padding: 10px 15px 10px 15px;
+        font-size: 1rem;
+        top: 10px;
+        right: 10px;
+        font-weight: bold;
+    }
+    .event-list-content .crical {
+    position: absolute;
+    background: #ff007a;
+    right: -56px;
+    bottom: -43px;
+    font-size: 30px;
+    color: #fff;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    padding-top: 22px;
+    padding-left: 10px;
+
+}
+.event-list-content {
+    padding: 5px 15px;
+    margin-right: 0px;
+
+}
+    
+}
+
+@media screen and (max-width: 575px) {
+    .events-date {
+        padding: 5px 5px 5px 5px;
+        font-size: 13px;
+        top: 10px;
+        right: 10px;
+        font-weight: bold;
+    }
+    .event-list-content .crical {
+    position: absolute;
+    background: #ff007a;
+    right: -56px;
+    bottom: -43px;
+    font-size: 30px;
+    color: #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    padding-top: 10px;
+    padding-left: 10px;
+
+}
+.event-list-content {
+    padding: 5px 15px;
+    margin-right: 0px;
+
+}
 }

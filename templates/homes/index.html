@@ -13,21 +13,21 @@
                             <div id="row" class="row text-center">
                                 <div class="col-lg-5 col-sm-12">
                                     <div class="position-relative">
-                                        <img src="{{ event.image.url}}" alt="img">
+                                        <img src="{{ event.images.first.image.url}}" alt="{{ event.name }}" class="img-fluid">
                                         <div class="events-date">
-                                            <div class="font-size28">{{ event.event.date|date:"d" }}</div>
-                                            <div class="font-size14">{{ event.event.date|date:"M" }}</div>
+                                            <div class="font-size28">{{ event.date|date:"d" }}</div>
+                                            <div class="font-size14">{{ event.date|date:"M" }}</div>
                                          </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-7 col-sm-12">
                                     <div id="event-list-content" class="event-list-content fix">
                                         <ul data-animation="fadeInUp animated" data-delay=".2s" style="animation-delay: 0.2s;">
-                                            <li><i class="fas fa-map-marker-alt"></i>{{event.event.address}}, {{event.event.city}}</li>
-                                            <li><i class="far fa-clock"></i>{{event.event.time}}</li>
+                                            <li><i class="fas fa-map-marker-alt"></i>{{event.address}}, {{event.city}}</li>
+                                            <li><i class="far fa-clock"></i>{{event.time}}</li>
                                         </ul>
-                                        <h2>{{event.event.organizer}}</h2>
-                                        <p class="lineClamp">{{event.event.description}}</p>
+                                        <h2>{{event.organizer}}</h2>
+                                        <p class="lineClamp">{{event.description}}</p>
                                         <a href="#" class="btn mt-20 mr-10">Buy Ticket</a>
                                         <a href="{% url 'event_detail' event.id %}" class="btn mt-20">Read More</a>
                                         <div class="crical"><i class="fal fa-magic"></i> </div>
