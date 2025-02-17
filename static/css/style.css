@@ -135,6 +135,10 @@ body {
     border-color: transparent var(--warm-coral) transparent transparent;
 }
 
+.btn-close{
+    color: #ff007a;
+}
+
 .event .tab-content {
     padding: 50px 25px 0 !important;
 }
