@@ -16,12 +16,12 @@ def EventDetailView(request, event_id):
         Event.objects.prefetch_related('images', 'ticket_types'),
         pk=event_id
     )
-    user_booking = Booking.objects.filter(ticket_type__event=event, user=request.user).first()
+    user_bookings = Booking.objects.filter(ticket_type__event=event, user=request.user)
     context = {
         'event': event,
         'images': event.images.all(),
         'ticket_types': event.ticket_types.all(),
         'form': BookingForm(),
-        'user_booking': user_booking,
+        'user_bookings': user_bookings,
     }
     return render(request, 'events/event_detail.html', context)

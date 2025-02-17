@@ -1,13 +1,40 @@
 <div>
-    {% if user_booking %}
-        <p>You have purchased {{ user_booking.quantity }} ticket(s).</p>
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelModal">
-            <i class="fas fa-times"></i> Cancel Booking
-        </button>
-        <!-- Form to be submitted via modal -->
-        <form id="cancelBookingForm" method="post" action="{% url 'cancel_booking' user_booking.id %}">
-            {% csrf_token %}
-        </form>
+    {% if user_bookings %}
+        {% for booking in user_bookings %}
+            {% if booking.ticket_type.id == ticket.id %}
+                <p>You have purchased {{ booking.quantity }} ticket(s).</p>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelModal" data-booking-id="{{ booking.id }}">
+                    <i class="fas fa-times"></i> Cancel Booking
+                </button>
+                <!-- Form to be submitted via modal -->
+                <form id="cancelBookingForm" method="post" action="{% url 'cancel_booking' booking.id %}">
+                    {% csrf_token %}
+                </form>
+            {% else %}
+                <form method="post" class="booking-form" action="{% url 'booking_form' event.id ticket.id %}" data-quantity-id="{{ form.quantity.id_for_label }}" data-max-quantity="{{ ticket.remaining_quantity }}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.quantity.label_tag }}
+                        <div class="input-group mt-2 form-stepper">
+                            <button type="button" class="btn form-stepper-button" id="decreaseQuantity">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+                            <span id="quantityDisplay" class="form-stepper-total-quantity">0</span>
+                            <input type="hidden" id="{{ form.quantity.id_for_label }}" name="{{ form.quantity.name }}" value="0">
+                            <button type="button" class="btn form-stepper-button" id="increaseQuantity">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                        <div id="quantityWarning" class="text-danger mt-2" style="display: none;">
+                            You cannot exceed the available number of tickets.
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="purchaseButton" disabled>
+                        <i class="fas fa-ticket-alt"></i> Purchase
+                    </button>
+                </form>
+            {% endif %}
+        {% endfor %}
     {% else %}
         <form method="post" class="booking-form" action="{% url 'booking_form' event.id ticket.id %}" data-quantity-id="{{ form.quantity.id_for_label }}" data-max-quantity="{{ ticket.remaining_quantity }}">
             {% csrf_token %}
