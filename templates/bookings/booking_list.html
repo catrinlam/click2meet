@@ -39,16 +39,20 @@
                 </tr>
             </thead>
             <tbody id="bookingTableBody">
-                {% for booking in bookings %}
-                    <tr>
-                        <td data-label="Ticket Type"><strong><a href="{% url 'event_detail' booking.ticket_type.event.id %}">{{ booking.ticket_type }}</a></strong></td>
-                        <td data-label="Event">{{ booking.ticket_type.event.name }}</td>
-                        <td data-label="Quantity">{{ booking.quantity }}</td>
-                        <td data-label="Booked At">{{ booking.booked_at }}</td>
-                        <td data-label="Payment Status">{{ booking.payment_status }}</td>
-                        <td data-label="Actions">
+                    {% for booking in bookings %}
+                        <tr>
+                            <td data-label="Ticket Type"><strong><a href="{% url 'event_detail' booking.ticket_type.event.id %}">{{ booking.ticket_type }}</a></strong></td>
+                            <td data-label="Event">{{ booking.ticket_type.event.name }}</td>
+                            <td data-label="Quantity">{{ booking.quantity }}</td>
+                            <td data-label="Booked At">{{ booking.booked_at }}</td>
+                            <td data-label="Payment Status">{{ booking.payment_status }}</td>
+                            <td data-label="Actions">
                             <button type="button" class="btn btn-danger btn-sm btn-cancel cancel-booking" data-booking-id="{{ booking.id }}" data-bs-toggle="modal" data-bs-target="#cancelModal">Cancel Booking</button>
                         </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center">You have no bookings.</td>
                     </tr>
                 {% endfor %}
             </tbody>
@@ -69,7 +73,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a id="cancelConfirm" href="#" class="btn btn-danger">Cancel</a>
+                <a id="confirmCancel" href="#" class="btn btn-danger">Cancel</a>
             </div>
         </div>
     </div>
