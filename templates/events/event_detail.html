@@ -2,52 +2,97 @@
 {% load static %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-8">
-            <h1>{{ event.name }}</h1>
-            <div class="event-meta mb-4">
-                <p class="text-muted">
-                    <i class="fas fa-calendar-alt"></i> {{ event.date }} 
-                    <i class="fas fa-clock ml-3"></i> {{ event.time }}
-                </p>
-                <p>
-                    <i class="fas fa-map-marker-alt"></i> 
-                    {{ event.address }}, {{ event.city }}, {{ event.postcode }}
-                </p>
-            </div>
-            
-            <div class="event-images mb-4">
-                {% for image in images %}
-                    <img src="{{ image.image.url }}" class="img-fluid mb-3" alt="Event image">
-                {% endfor %}
-            </div>
-
-            <div class="event-description">
-                <h3>Event Details</h3>
-                <p>{{ event.description }}</p>
-            </div>
-
-            <div class="ticket-types mt-5">
-                <h3>Available Tickets</h3>
-                {% for ticket in ticket_types %}
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ ticket.name }}</h5>
-                            <p class="card-text">
-                                Price: £{{ ticket.price }}<br>
-                                Remaining: {{ ticket.remaining_quantity }} of {{ ticket.quantity }}
-                            </p>
-                            <button class="btn btn-primary">
-                                <i class="fas fa-ticket-alt"></i> Purchase
-                            </button>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="ecommerce-gallery vertical" data-mdb-ecommerce-gallery-init>
+                <div class="row">
+                    <div class="col-4 col-sm-3">
+                    <div class="multi-carousel vertical" data-mdb-multi-carousel-init data-mdb-items="3">
+                        <div class="multi-carousel-inner">
+                            {% for image in images %}
+                            <div class="multi-carousel-item {% if forloop.first %}active{% endif %}">
+                                 <img
+                                src="{{ image.image.url }}"
+                                data-mdb-img="{{images.image.url}}"
+                                alt="Event image"
+                                class="active w-100"
+                                />
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <button
+                        class="carousel-control-prev"
+                        tabindex="0"
+                        type="button"
+                        data-mdb-slide="prev"
+                        >
+                            <span
+                            class="carousel-control-prev-icon"
+                            aria-hidden="true"
+                        >   </span>
+                        </button>
+                        <button
+                        class="carousel-control-next"
+                        tabindex="0"
+                        type="button"
+                        data-mdb-slide="next"
+                        >
+                            <span
+                            class="carousel-control-next-icon"
+                            aria-hidden="true"
+                        >   </span>
+                        </button>
+                    </div>
+                    </div>
+                    <div class="col-8 col-sm-9">
+                        <div class="lightbox" data-mdb-lightbox-init>
+                            <img
+                            src="{{ images.first.image.url }}"
+                            alt="Main event image"
+                            class="ecommerce-gallery-main-img active w-100"
+                            />
                         </div>
                     </div>
-                {% empty %}
-                    <p class="text-muted">No tickets available yet</p>
-                {% endfor %}
+                </div>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center mt-5">{{ event.name }}</h1>
+            <p class="text-center mt-5">{{event.description}}</p>
+        </div>
+    </div>
+    <div class="row p-3 d-flex justify-cotent-space-between">
+        <div class="col-md-4">
+            <div class="text-gray-500 mb-2">Organizer</div>
+            <span class="text-gray-800 fw-bold">{{event.organizer}}</span>
+        </div>
+        <div class="col-md-4">
+            <div class="text-gray-500 mb-2">Address</div>
+            <span class="text-gray-800 fw-bold">{{event.address}}</span>
+        </div>
+        <div class="col-md-4">
+            <span class="text-gray-500 mb-2">City</span>
+            <span class="text-gray-800 fw-bold">{{event.city}}</span>
+        </div>
+    </div>
+    <div class="row mt-3 p-3 d-flex justify-cotent-space-between">
+        <div class="col-md-4">
+            <div class="text-gray-500 mb-2">Post Code</div>
+            <span class="text-gray-800 fw-bold">{{event.postcode}}</span>
+        </div>
+        <div class="col-md-4">
+            <div class="text-gray-500 mb-2">Date</div>
+            <span class="text-gray-800 fw-bold">{{event.date}}</span>
+        </div>
+        <div class="col-md-4">
+            <div class="text-gray-500 mb-2">Time</div>
+            <span class="text-gray-800 fw-bold">{{event.time}}</span>
+        </div>
+    </div>
+    {% include 'bookings/booking_form.html' %}
 </div>
+
 {% endblock %}

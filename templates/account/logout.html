@@ -5,13 +5,13 @@
 {% block head_title %}Sign Out{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="card mx-auto">
+<div class="container mt-4 p-4">
+    <div class="card mx-auto  p-4">
         <!-- Card Header -->
         <div class=" text-center ">
             <h4 class="mb-0">Sign Out</h4>
         </div>
-        
+
         <!-- Card Body -->
         <div class="card-body text-center">
             <p class="mb-4">Are you sure you want to sign out?</p>
@@ -20,10 +20,11 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                
 
-                <div class="d-flex justify-content-center mt-4">
-                    <a href="{% url 'event_list' %}" class="btn btn-secondary me-3">Go back to events</a>
+
+                <div class="mt-4 d-flex align-items-center justify-content-center gap-x-4">
+                    <button onclick="history.back()" class="btn btn-primary"
+                        class="btn btn-secondary me-3">Cancel</button>
                     <button class="btn btn-danger" type="submit">Logout</button>
                 </div>
             </form>
