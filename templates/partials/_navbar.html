@@ -26,10 +26,16 @@
           <ul class="navbar-nav ms-auto">
             {% if not user.is_authenticated %}
             <li class="nav-item">
-                <a href="{% url 'account_signup' %}" class="nav-link" aria-disabled="true">Sign Up</a>
+                <a href="{% url 'account_signup' %}" class="nav-link" aria-disabled="true">
+                  <i class="fas fa-user-plus"></i>
+                  Sign Up
+                </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'account_login' %}" class="nav-link" aria-disabled="true">Sign In</a>
+                <a href="{% url 'account_login' %}" class="nav-link" aria-disabled="true">
+                  <i class="fas fa-sign-in"></i>
+                  Sign In
+                </a>
             </li>
             {% else %}
             <li class="nav-item">
