@@ -26,7 +26,7 @@ def booking_form(request, event_id, ticket_type_id):
             booking.ticket_type = ticket_type
             booking.save()
             messages.add_message(request, messages.SUCCESS, 'Booking created!')
-            return redirect(EventDetailView, event_id=event.id)
+            return redirect('user_booking')
     else:
         form = BookingForm()
     return render(request, 'bookings/booking_form.html', {
