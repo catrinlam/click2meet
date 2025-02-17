@@ -79,10 +79,6 @@ You can view the full color palette [here](https://coolors.co/2f3e46-0a3d62-00b4
 
 ![Colour Scheme](docs/readme/colour-scheme.png)
 
-## Font
-
-The fonts used for click2meet are chosen to enhance readability and aesthetics. The chosen fonts are:
-
 # Project Planning
 
 ## Agile Methodologies - Project Management
