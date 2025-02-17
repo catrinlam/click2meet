@@ -371,7 +371,7 @@ ul {
 
 .form-stepper-button {
     background-color: var(--deep-sapphire);
-    color: var (--light-sand);
+    color: var(--light-sand);
     border-radius: 12px !important;
     padding: 5px 10px;
 }
@@ -399,13 +399,13 @@ ul {
 
 .btn-secondary {
     background-color: var(--vibrant-cyan);
-    color: var (--light-sand);
+    color: var(--light-sand);
     border: var(--soft-mint-green);
 }
 
 .btn-secondary:hover {
     background-color: var(--soft-mint-green);
-    color: var (--deep-sapphire);
+    color: var(--deep-sapphire);
 }
 
 .btn-accent {
