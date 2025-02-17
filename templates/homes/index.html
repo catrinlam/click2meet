@@ -29,8 +29,13 @@
                                         </ul>
                                         <h2>{{event.organizer}}</h2>
                                         <p class="lineClamp">{{event.description}}</p>
+                                        {% if user.is_authenticated %}
                                         <a href="{% url 'event_detail' event.id %}" class="btn mt-20 mr-10">Buy Ticket</a>
                                         <a href="{% url 'event_detail' event.id %}" class="btn mt-20">Read More</a>
+                                        {% else %}
+                                        <a href="{% url 'account_login' %}" class="btn mt-20 mr-10">Log In</a>
+                                        {% endif %}
+                                        
                                         <div class="crical"><i class="fal fa-magic"></i> </div>
                                     </div>
                                 </div>
