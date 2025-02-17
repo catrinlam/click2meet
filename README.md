@@ -68,7 +68,14 @@ click2meet is a platform designed for users to book and manage event tickets. Th
 ## Colour Scheme
 
 The color scheme for click2meet is designed to be visually appealing and user-friendly. The chosen colors are:
+- Deep Sapphire: #0A3D62
+- Vibrant Cyan: #00B4D8
+- Soft Mint Green: #90E0EF
+- Warm Coral: #FF857A
+- Light Sand: #F9F6F7
+- Charcoal Gray: #2F3E46
 
+You can view the full color palette [here](https://coolors.co/2f3e46-0a3d62-00b4d8-90e0ef-ff857)
 
 ![Colour Scheme](docs/readme/colour-scheme.png)
 
