@@ -1,18 +1,19 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const cancelButtons = document.getElementsByClassName("cancel-booking");
+    const cancelButtons = document.querySelectorAll(".btn-danger[data-bs-toggle='modal']");
     const cancelModal = document.getElementById("cancelModal");
-    const cancelConfirm = document.getElementById("cancelConfirm");
+    const confirmCancel = document.getElementById("confirmCancel");
+    const cancelBookingForm = document.getElementById("cancelBookingForm");
 
-    for (let button of cancelButtons) {
+    cancelButtons.forEach(button => {
         button.addEventListener("click", (e) => {
             let bookingId = e.target.getAttribute("data-booking-id");
-            cancelConfirm.href = `cancel/${bookingId}`;
+            cancelBookingForm.action = `/bookings/cancel/${bookingId}/`;
             cancelModal.classList.add("show");
             cancelModal.style.display = "block";
             cancelModal.setAttribute("aria-modal", "true");
             cancelModal.removeAttribute("aria-hidden");
         });
-    }
+    });
 
     document.querySelectorAll('[data-bs-dismiss="modal"]').forEach(function(button) {
         button.addEventListener("click", function() {
@@ -70,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    document.getElementById('confirmCancel').addEventListener('click', function() {
-        document.getElementById('cancelBookingForm').submit();
+    confirmCancel.addEventListener('click', function() {
+        cancelBookingForm.submit();
     });
 });
