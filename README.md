@@ -40,15 +40,7 @@ Visit the live site here: [click2meet](https://click2meet-4e32aa494605.herokuapp
   - [Local Deployment](#local-deployment)
   - [Clone Project](#clone-project)
   - [Fork Project](#fork-project)
-- [AI Implementation and Orchestration](#ai-implementation-and-orchestration)
-  - [Use Cases and Reflections](#use-cases-and-reflections)
-  - [Code Creation](#code-creation)
-  - [Debugging](#debugging)
-  - [Performance and UX Optimization](#performance-and-ux-optimization)
-  - [Overall Impact](#overall-impact)
 - [Credits](#credits)
-  - [Code](#code)
-  - [Media](#media)
   - [The Team](#the-team)
 
 ## Overview
@@ -292,45 +284,13 @@ You can fork this repository by using the following steps:
 2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account
 
-# AI Implementation and Orchestration
-
-## Use Cases and Reflections
-Throughout the development of click2meet, GitHub Copilot was integrated into the workflow to assist with various aspects of coding, debugging, and optimisation. This project marked a significant step in leveraging AI-powered development tools to enhance efficiency and maintain code quality.
-
-## Code Creation
-
-**Reflection:** 
-## Debugging
-
-**Reflection:** 
-
-## Performance and UX Optimization
-
-**Reflection:** 
-
-## Overall Impact
-
-
 # Credits
-
-## Code
-
-- Readme structure from [project readme guide](https://github.com/Code-Institute-Org/html-css-project/blob/main/sample-full-stack-capstone-readme.md#ai-implementation-and-orchestration)
-
-## Media
-
-- 
-
-| Source | Author | Link |
-|--------|--------|------|
-
-
 ## The Team
+
+[Catrin Lam](https://github.com/catrinlam)
 
 [Linda Collins](https://github.com/lindanwajei2205)
 
 [Lionel Gweshe](https://github.com/Leo-gwe)
 
 [Sardar Amiri](https://github.com/SardarAmiri)
-
-[Catrin Lam](https://github.com/catrinlam)
